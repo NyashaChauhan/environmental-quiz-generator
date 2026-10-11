@@ -1,53 +1,120 @@
-# AI Quiz Generator
+# 🌍 Environmental Quiz Generator
 
-Uses OpenAI's ChatGPT API to generate multiple choice quiz with user defined language, topic, and difficulty.
+An AI-powered environmental science quiz generator built with **Next.js, React, Tailwind CSS, and Google Gemini API**. Users can generate multiple-choice quizzes on environmental topics with customizable difficulty levels and question counts.
 
-Features a loading screen with random facts to give the user something to do while the data is retrieved from the API and an ending screen with score-determined gifs and sarcastic messages.
+## ✨ Features
 
-[View Live App](https://ai-quiz-generator-next.vercel.app/)
+- 🌱 **Topic Selection:** Generate quizzes on climate change, pollution, biodiversity, renewable energy, waste management, water conservation, and more.
+- 🎯 **Customizable Difficulty:** Choose beginner, intermediate, or advanced questions.
+- 📝 **Flexible Question Count:** Generate 5, 10, 15, or 20 questions.
+- 🤖 **AI-Powered Quiz Generation:** Uses the Google Gemini API to generate environmental science questions, options, answers, and explanations.
+- 🌿 **Environmental Facts:** Learn interesting environmental facts while the quiz loads.
+- 📊 **Progress Tracking:** Track your progress as you answer questions.
+- 🏆 **Results Dashboard:** View your final score, correct answers, and incorrect answers.
+- 🎉 **Celebration Screen:** Enjoy score-based GIFs, motivational messages, and confetti for high scores.
+- 🎵 **Audio Player:** Listen to the included background music while using the application.
 
-![home page](./docs/images/home-page.jpg)
+## 🛠️ Tech Stack
 
-## Features
-- Customisable language, topic, difficulty, and number of questions
-- Loading screen that displays the live response stream and random webdev/programming facts (gives you something to do as it can take around 20-30 seconds for the quiz to generate)
-- Multiple choice Ed-style quiz with explanations and a progress bar
-- End screen with gifs, sarcastic messages, and confetti (>= 80%) that adapt to your quiz score
-- 14 track kahoot-flavored audio player (this is the real highlight, the quiz is just something to do while you're groovin :grin:)
+- **Frontend:** React.js, Next.js, Tailwind CSS
+- **AI Integration:** Google Gemini API
+- **Language:** JavaScript
+- **Styling:** Tailwind CSS
+- **Version Control:** Git and GitHub
 
-## Tech Used
+## 📦 Libraries Used
 
-- Next.js 13.4 (using the new App router)
-- Tailwind CSS
-- OpenAI's `gpt-3-turbo` API
+- [Next.js](https://nextjs.org/) — React framework
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework
+- [react-confetti](https://www.npmjs.com/package/react-confetti) — Confetti animation
+- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner) — Loading animation
+- [react-icons](https://react-icons.github.io/react-icons/) — Icons
+- [react-use](https://github.com/streamich/react-use) — React utility hooks
+- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) — Typewriter effect
 
-## Packages Used
-- [framer-motion](https://www.framer.com/motion/) (for animations)
-- [highlight.js](https://www.npmjs.com/package/highlight.js) (for syntax highlighting)
-- [react-confetti](https://www.npmjs.com/package/react-confetti)
-- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
-- [react-icons](https://react-icons.github.io/react-icons/)
-- [react-use](https://github.com/streamich/react-use) (for the `useAudio()` hook)
-- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
+## 🚀 Getting Started
 
-## Tools ##
-- `create-next-app` (development and building)
-- Vercel (deployment)
+### Prerequisites
 
-## OpenAI Integration
+- [Node.js](https://nodejs.org/) and npm
+- A Google Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey)
 
-A custom prompt is created by interpolating user entered form data. Crucially, the response is asked to be returned in JSON format. Light "prompt engineering" was required to ensure the response was consistently in the correct format (for example: explicitly saying what the names of the keys should be).
+### Installation
 
-![prompt](./docs/images/prompt.jpg)
+1. Clone the repository:
 
-The API is queried. After playing with the available parameters, I found leaving most of them at their default setting worked well.
+   ```bash
+   git clone https://github.com/NyashaChauhan/environmental-quiz-generator.git
+   ```
 
-![api request](./docs/images/api-request.jpg)
+2. Navigate to the project directory:
 
-## Screenshots
+   ```bash
+   cd environmental-quiz-generator
+   ```
 
-![loading screen](./docs/images/loading-screen.jpg)
+3. Install the dependencies:
 
-![quiz screen](./docs/images/quiz-screen.jpg)
+   ```bash
+   npm install
+   ```
 
-![end-screen](./docs/images/end-screen.jpg)
+4. Create a `.env.local` file in the project's root directory and add your Gemini API key:
+
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+
+   Replace `your_gemini_api_key_here` with your own API key. **Never commit your real API key to GitHub.**
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🧠 How It Works
+
+1. The user selects an environmental topic, difficulty level, and number of questions.
+2. The application sends these settings to a Next.js API route.
+3. The API route sends a prompt to Google Gemini.
+4. Gemini generates multiple-choice questions with answer choices and explanations in JSON format.
+5. The quiz displays the generated questions and tracks the user's answers.
+6. The results page calculates the score and displays the correct and incorrect answer counts.
+
+## 📸 Screenshots
+
+
+### Home Page
+
+![Environmental Quiz Generator home page](./docs/images/home-page.png)
+
+### Loading Screen
+
+![Environmental facts loading screen](./docs/images/loading-screen.png)
+
+### Quiz Screen
+
+![Environmental quiz interface](./docs/images/quiz-screen.png)
+
+### Results Screen
+
+![Environmental quiz results](./docs/images/end-screen.jpg)
+
+## 🙌 Acknowledgements
+
+This project is adapted from the original [AI Quiz Generator](https://github.com/quentin-mckay/AI-Quiz-Generator). The application has been modified to focus on environmental science and use Google Gemini for AI-powered quiz generation.
+
+Please refer to the original repository's license for applicable reuse and attribution requirements.
+
+## 🔐 Security
+
+- Keep API keys in `.env.local`.
+- Do not upload `.env.local` or other files containing secrets.
+- Use environment variables for API credentials.
+
+## 📄 License
+
+Refer to the original project's license and applicable reuse terms before redistributing this adapted project.
